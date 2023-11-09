@@ -351,7 +351,7 @@
               <img style="width:150px" src="img/bca.jfif" alt="">
               <div class="d-flex">
                 <input type="text" readonly value="7425331922" style="height: 40px;" class="form-control" id="norek-tiyara">
-                <button type="button" onclick="noRekTiyara()" class="btn btn-light" style="width: 150px;">Salin</button>
+                <button type="button" id="btnTiyara" class="btn btn-light" style="width: 150px;">Salin</button>
               </div>
               <h5 style="color: #000080;" class="mt-5"><b>Tiyara Dewi</b></h5>
             </li>
@@ -363,7 +363,7 @@
               <img style="width:150px; margin-top: 30px ;" src="img/seabank.png" alt="">
               <div class="d-flex" style="margin-top: 40px;">
                 <input type="text" readonly value="901387365858" style="height: 40px; " class="form-control" id="norek-wisnu">
-                <button type="button" onclick="noRekWisnu()" class="btn btn-light" style="width: 150px;">Salin</button>
+                <button type="button" id="btnWisnu" class="btn btn-light" style="width: 150px;">Salin</button>
               </div>
               <h5 style="color: #000080;" class="mt-5"><b>Wisnu Wibowo Yudithia</b></h5>
             </li>
@@ -507,41 +507,27 @@
 
     document.querySelector('#nama').value = nama;
   </script>
-  <script>
-    function noRekTiyara() {
-  // Get the text field
-  var norRekTiyara = document.getElementById("norek-tiyara");
-
-  // Select the text field
-  norRekTiyara.select();
-  norRekTiyara.setSelectionRange(0, 99999); // For mobile devices
-
-   // Copy the text inside the text field
-  navigator.clipboard.writeText(norRekTiyara.value);
-
-  // Alert the copied text
-  alert("Nomor rekening Tiyara berhasil disalin!");
-}
-  </script>
-  <script>
-    function noRekWisnu() {
-  // Get the text field
-  var norekWiisnu = document.getElementById("norek-wisnu");
-
-  // Select the text field
-  norekWiisnu.select();
-  norekWiisnu.setSelectionRange(0, 99999); // For mobile devices
-
-   // Copy the text inside the text field
-  navigator.clipboard.writeText(norekWiisnu.value);
-
-  // Alert the copied text
-  alert("Nomor rekening Wisnu berhasil disalin!");
-}
-  </script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
       AOS.init();
+    </script>
+    <script>
+      var tiyara = document.getElementById("norek-tiyara")
+      var wisnu = document.getElementById("norek-wisnu")
+      var btnTiyara = document.getElementById("btnTiyara")
+      var btnWisnu = document.getElementById("btnWisnu")
+
+      btnTiyara.addEventListener("click", function(){
+        tiyara.select();
+        document.execCommand("copy")
+        alert("Nomor Rekening Tiyara disimpan!")
+      })
+
+      btnWisnu.addEventListener("click", function(){
+        wisnu.select();
+        document.execCommand("copy");
+        alert('Nomor Rekening Wisnu disimppan!')
+      })
     </script>
 </body>
 
